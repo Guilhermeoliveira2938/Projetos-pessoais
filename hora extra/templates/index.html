@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="../static/logo.png" type="image/x-icon">
+    <title>Calculadora de Horas Extras</title>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo KO" class="logo">
+            <span class="header-title">Cálculos de Horas Extras</span>
+        </div>
+    </header>
+
+    <main>
+        <h1>Calculadora de Horas Extras</h1>
+
+        <form action="/calcular" method="POST">
+            <label>Salário bruto:</label>
+            <input type="number" name="salario" required>
+
+            <label>Porcentagem da hora (50% ou 100%):</label>
+            <input type="number" name="porcentagem" required>
+
+            <label>Quantidade de horas extras:</label>
+            <input type="number" name="horas" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if pagar %}
+        <div class="resultado">
+            <p>Valor por hora: R$ {{ val_hora }}</p>
+            <p>Valor da hora extra: R$ {{ val_extra }}</p>
+            <p><strong>Total a receber: R$ {{ pagar }}</strong></p>
+            <a href="/">Calcular de novo</a>
+        </div>
+        {% endif %}
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <a href="mailto:kellyoliveira.virtual@gmail.com">
+                <i class="fa-brands fa-google" style="color:#EA4335"></i>
+                kellyoliveira.virtual@gmail.com
+            </a>
+            <a href="https://wa.me/5583986937044" target="_blank">
+                <i class="fa-brands fa-whatsapp" style="color:#25D366"></i>
+                (83) 98693-7044
+            </a>
+            <a href="https://instagram.com/koconsultoriaegestao" target="_blank">
+                <i class="fa-brands fa-instagram" style="color:#E1306C"></i>
+                koconsultoriaegestao
+            </a>
+        </div>
+        <p class="feito-por">Feito por Guilherme Oliveira</p>
+    </footer>
+
+</body>
+</html>
