@@ -22,13 +22,13 @@
 
         <form action="/calcular" method="POST">
             <label>Salário bruto:</label>
-            <input type="number" name="salario" required>
+            <input type="number" name="salario" step="0.01" required>
 
             <label>Porcentagem da hora (50% ou 100%):</label>
             <input type="number" name="porcentagem" required>
 
             <label>Quantidade de horas extras:</label>
-            <input type="number" name="horas" required>
+            <input type="number" name="horas" step="0.01" required>
 
             <button type="submit">Calcular</button>
         </form>
